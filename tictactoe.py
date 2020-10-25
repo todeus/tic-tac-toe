@@ -22,15 +22,15 @@ def game(lines):
 
     if x_win in lines:
         print("X wins")
-        return True
+        return False
     elif o_win in lines:
         print("O wins")
-        return True
+        return False
     elif string.count('X') + string.count('O') < 9:
-        pass
+        return True
     else:
         print("Draw")
-        return True
+        return False
 
 
 print(f"""---------
@@ -39,7 +39,7 @@ print(f"""---------
 | {cell_h[2][0]} {cell_h[2][1]} {cell_h[2][2]} |
 ---------""")
 
-while not game(cell_v + cell_h + cell_d):
+while game(cell_v + cell_h + cell_d):
     coordinate = input("Enter the coordinates: ").split()
 
     if len(coordinate) != 2 or not coordinate[0].isdigit() and not coordinate[1].isdigit():
